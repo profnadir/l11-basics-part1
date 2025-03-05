@@ -20,4 +20,8 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('/users',UserController::class);
 
+Route::get("/dev/{groupe}",function($groupe){
+    return "dev ". $groupe;
+})->name("dev201");
+
 require __DIR__.'/auth.php';

@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form action="{{ route("users.store") }}?token=123" method="post" enctype="multipart/form-data">
+                    <form action="{{ route("users.store") }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div>
                             <label for="name">Name</label>

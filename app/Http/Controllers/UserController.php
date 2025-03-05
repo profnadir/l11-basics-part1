@@ -12,7 +12,29 @@ class UserController extends Controller
      */
     public function index()
     {
-        return "list users";
+
+        /* return response()->json([
+            'name' => 'Abigail',
+            'state' => 'CA',
+        ]); */
+        
+
+        $users = User::all();
+        return view("users.index",["users" => $users]);
+
+       
+
+        //return $users;
+
+        // Illuminate\Http\Response 
+
+        //return response("hi dev",200);
+
+        //return redirect()->route("dev201",["groupe" => 202]);
+
+        //return back()->withInput();
+
+        //return redirect()->away('https://www.google.com');
     }
 
     /**
@@ -28,60 +50,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //get data
-
-        //dd($request->input("email"));
-        //dd($request->name);
-
-        //dd($request->path());
-
-        $url = $request->url();
-        $urlWithQueryString = $request->fullUrl();
-
-        //dd($url, $urlWithQueryString);
-
-       /*  $host = $request->host();
-        $http = $request->httpHost();
-        $schema = $request->schemeAndHttpHost();
-
-        dd($host,$http,$schema); */
-
-       /*  if($request->isMethod('post')){
-            dd("post");
-        }  */
-
-        //dd($request->all());
-
-       /*  $name = $request->input('name1', 'Sally');
-        dd($name); */
-
-        //dd($request->input());
-
-        //dd($request->query('token'));
-
-        //dd($request->only(["name","email"]));
-        //dd($request->except(["name","email"]));
-
-       /*  if ($request->has('name2')) {
-            dd("exist");
-        } */
-        
-
-
-        //validate data
-        // stock
-        // redirection
-
-        //if validate 
-
-        //save data
-
-        //else
-        //return back()->withInput();
-
-        //dd($request->file("cv"));
-        $request->cv->store("cvs");
-        
+        return redirect()->route("users.index")->with("status","user created");
 
     }
 
@@ -90,7 +59,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return redirect()->action([UserController::class, 'edit']);
     }
 
     /**
